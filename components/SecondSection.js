@@ -50,11 +50,11 @@ useEffect(() => {
         {/* Image */}
 <div ref={imageRef} className="w-full h-full">
 <Image
-            src = "http://localhost/wordpress/wp-content/uploads/2019/09/omar-lopez-rwF_pJRWhAI-unsplash-small.jpg"
+            src = "/assets/sectionsection.jpg"
             alt="People"
             width={800}
             height={600}
-            className=" w-full h-auto object-cover shadow-lg"
+            className=" w-40vw h-auto object-cover shadow-lg"
           />
 </div>
         {/* Content */}
@@ -76,13 +76,15 @@ useEffect(() => {
             “I had a great experience with Salient from start to finish.”
 </blockquote>
 <div className="flex items-center gap-3 mt-4">
-<Image
-              src="http://localhost/wordpress/wp-content/uploads/2019/09/david-hurley-1321290-unsplash.jpg"
-              alt="User"
-              width={40}
-              height={40}
-              className="rounded-full object-cover shadow-sm"
-            />
+<div className="w-10 h-10 rounded-full overflow-hidden shadow-sm relative">
+  <Image
+    src="/assets/section2_l.jpg"
+    alt="User"
+    fill
+    className="object-cover"
+  />
+</div>
+
 <div className="text-sm">
 <p className="font-bold text-gray-900">Phil Martinez</p>
 <p className="text-gray-600">Designer, Owl Eyes</p>
@@ -91,6 +93,5 @@ useEffect(() => {
 </div>
 </div>
 </section>
-)
-}
+)}
  

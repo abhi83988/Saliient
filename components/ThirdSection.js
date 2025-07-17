@@ -107,7 +107,7 @@ export default function ThirdSection() {
                 `}
               >
                 {renderSVGIcon()}
-                <h3 className="text-2xl font-bold">{service.title}</h3>
+                <h3 className="text-4xl font-bold flex justify-center  ">{service.title}</h3>
               </div>
 
               {/* Gradient + Mobile/hover text */}
