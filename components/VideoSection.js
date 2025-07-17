@@ -38,7 +38,8 @@ export default function VideoSection() {
 
         {/* Heading text */}
         <h1 className="text-3xl md:text-4xl font-sm text-center mt-5">
-          See What We're About
+         <p>This isn&rsquo;t just another video</p>
+
         </h1>
       </div>
     </div>

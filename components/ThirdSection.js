@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -78,11 +79,12 @@ export default function ThirdSection() {
               className="relative overflow-hidden group shadow-lg cursor-pointer"
             >
               {/* Image */}
-              <img
+              {/* <img
                 src={service.image}
-                alt={service.title}
+                alt={service.image}
                 className="w-full h-120 object-cover transform scale-100 transition-transform duration-[8000ms] ease-in-out group-hover:scale-110"
-              />
+              /> */}
+              <Image src={service.image} alt={service.image} width={500} height={300} />
 
               {/* Overlay */}
               <div className="absolute inset-0 bg-black opacity-30 group-hover:bg-opacity-60 transition duration-500 z-10"></div>

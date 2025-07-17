@@ -44,7 +44,9 @@ export default function BrandSection() {
           ref={textRef}
           className="text-3xl md:text-5xl font-semibold text-black  gap-5"
         >
-          We've worked with some<br />of the biggest brands
+          <p>We&rsquo;ve worked with some of the biggest brands</p>
+
+
         </h2>
 
         <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-8 items-center">

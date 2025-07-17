@@ -2,6 +2,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -97,11 +98,12 @@ export default function FourthSection() {
 
         {/* Right Image Column (unchanged from your original) */}
         <div ref={imageRef}>
-          <img
+          {/* <img
             src="http://localhost/wordpress/wp-content/uploads/2019/09/sheng-li-KC5x7jyd33U-unsplash-small.jpg"
             alt="Mission"
             className="w-150 h-auto object-cover shadow-md"
-          />
+          /> */}
+          <Image src="http://localhost/wordpress/wp-content/uploads/2019/09/sheng-li-KC5x7jyd33U-unsplash-small.jpg" alt="Section" width={500} height={300} />
         </div>
       </div>
     </section>

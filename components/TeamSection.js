@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Image from 'next/image';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -109,11 +110,12 @@ export default function TeamSection() {
                 index === 0 || index === 2 || index===3 || index===5 ? 'mt-30' : ''
               }`}
             >
-              <img
+              {/* <img
                 src={member.img}
                 alt={member.name}
                 className="w-full h-full object-cover transition-transform duration-300"
-              />
+              /> */}
+              <Image src={member.img} alt={member.name} width={500} height={300} />
             </div>
 
             {/* Text Container */}
