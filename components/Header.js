@@ -43,8 +43,8 @@ export default function Header() {
   }, [menuOpen]);
 
   const logoSrc = isScrolled
-    ? 'http://localhost/wordpress/wp-content/uploads/2019/09/dark-non-retina.png'
-    : 'http://localhost/wordpress/wp-content/uploads/2019/09/light-non-retina.png';
+    ? '/assets/logo_dark.png'
+    : '/assets/logo_white.png';
 
   return (
     <header
@@ -52,7 +52,7 @@ export default function Header() {
         isScrolled ? 'bg-white shadow-md' : 'bg-transparent'
       }`}
     >
-      <div className="flex justify-between items-center w-[80vw] mt-2">
+      <div className="flex justify-between items-center w-[80vw] ">
         {/* Logo */}
        <div className="relative w-[100px] h-[36px] md:w-[140px] md:h-[40px]">
 

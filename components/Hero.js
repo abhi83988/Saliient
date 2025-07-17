@@ -25,7 +25,7 @@ export default function Hero() {
       className="relative min-h-[95vh] bg-cover bg-center px-5 md:px-10 pt-24"
       style={{
         backgroundImage:
-          "url('http://localhost/wordpress/wp-content/uploads/2019/09/kai-pilger-mgFzfrrmGKI-unsplash.jpg')",
+          'url("./assets/bg.jpg")',
       }}
     >
       {/* 🔳 Black Overlay */}
@@ -37,7 +37,7 @@ export default function Hero() {
           ref={textRef}
           className="text-white w-full space-y-6 max-w-3xl"
         >
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+          <h1 className="text-4xl mt-20 md:text-5xl font-bold leading-tight ">
             Breathing life into <br /> brands through <br /> stunning design
           </h1>
           <Link href="#">

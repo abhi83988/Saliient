@@ -13,38 +13,38 @@ const teamMembers = [
     role: 'CEO, Founder',
     name: 'James Warren',
     desc: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
-    img: 'http://localhost/wordpress/wp-content/uploads/2019/09/albert-dera-ILip77SbmOE-unsplash-1.jpg',
+    img: '/assets/team_1.jpg',
   },
   {
     role: 'Designer',
     name: 'Zachary Miller',
     desc: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts',
-    img: 'http://localhost/wordpress/wp-content/uploads/2019/09/team-6.jpg',
+    img: '/assets/team_2.jpg',
   },
   {
     role: 'UX Designer',
     name: 'Kara Lucas',
     desc: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts',
-    img: 'http://localhost/wordpress/wp-content/uploads/2019/09/team7.jpg',
+    img: '/assets/team_3.jpg',
   },
   // Second row
   {
     role: 'Developer',
     name: 'Corey Willams',
     desc: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts',
-    img: 'http://localhost/wordpress/wp-content/uploads/2019/09/team5.jpg',
+    img: '/assets/team_4.jpg',
   },
   {
     role: 'Art Director',
     name: 'Daniel Wilson',
     desc: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts',
-    img: 'http://localhost/wordpress/wp-content/uploads/2019/09/team2.jpg',
+    img: '/assets/team_5.jpg',
   },
   {
     role: 'Marketing',
     name: 'Sophia Johnson',
     desc: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts',
-    img: 'http://localhost/wordpress/wp-content/uploads/2019/09/matheus-ferrero-W7b3eDUb_2I-unsplash.jpg',
+    img: '/assets/team_6.jpg',
   },
 ];
 
@@ -106,16 +106,17 @@ export default function TeamSection() {
           >
             {/* Image Container */}
             <div
-              className={`overflow-hidden w-90 h-120 shadow-md hover:shadow-xl transition-shadow ${
-                index === 0 || index === 2 || index===3 || index===5 ? 'mt-30' : ''
-              }`}
+              className={`overflow-hidden w-90 h-120 shadow-md hover:shadow-xl transition-shadow ${index === 0 || index === 2 || index === 3 || index === 5 ? 'mt-30' : ''
+                }`}
             >
               {/* <img
                 src={member.img}
                 alt={member.name}
                 className="w-full h-full object-cover transition-transform duration-300"
               /> */}
-              <Image src={member.img} alt={member.name} width={500} height={300} />
+              <Image src={member.img} alt={member.name} width={500} height={300}
+                className="w-full h-full object-cover"
+                unoptimized />
             </div>
 
             {/* Text Container */}
