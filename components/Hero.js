@@ -42,8 +42,8 @@ export default function Hero({texts}) {
           className="text-white w-full space-y-6 max-w-3xl"
         >
           <h1 className="text-4xl mt-20 md:text-5xl font-bold leading-tight ">
-            {/* Breathing life into <br /> brands through <br /> stunning design */}
-            {heading?.value}
+            Breathing life into <br /> brands through <br /> stunning design
+            {/* {heading?.value} */}
           </h1>
           <Link href="#">
             <button className="bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-full transition-all duration-300">
