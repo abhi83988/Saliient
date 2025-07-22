@@ -22,7 +22,6 @@ export default function Hero({texts}) {
   }, []);
 
 
-  const heading = texts.filter((txt)=> txt.type === "text_content")[0];
 
   return (
     <section
@@ -32,6 +31,7 @@ export default function Hero({texts}) {
           'url("./assets/bg.jpg")',
       }}
     >
+      
       {/* 🔳 Black Overlay */}
       <div className="absolute inset-0 bg-black opacity-30 z-0"></div>
 
@@ -42,12 +42,13 @@ export default function Hero({texts}) {
           className="text-white w-full space-y-6 max-w-3xl"
         >
           <h1 className="text-4xl mt-20 md:text-5xl font-bold leading-tight ">
-            Breathing life into <br /> brands through <br /> stunning design
-            {/* {heading?.value} */}
+            {/* Breathing life into <br /> brands through <br /> stunning design */}
+              <p>{texts.filter((txt) => txt.type === 'text_content')[0]?.value}</p>
+
           </h1>
           <Link href="#">
             <button className="bg-orange-500 hover:bg-orange-600 text-white py-3 px-6 rounded-full transition-all duration-300">
-              → Discover More
+               {texts.filter((txt)=>txt.type==='link_text')[0]?.value}
             </button>
           </Link>
         </div>

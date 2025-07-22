@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 
-export default function VideoSection() {
+export default function VideoSection({texts  }) {
   return (
     <div className="relative h-screen w-full overflow-hidden">
       {/* Header on top */}
@@ -13,7 +13,7 @@ export default function VideoSection() {
           loop
           muted
           playsInline
-          className="w-full h-full object-cover opacity-50  transition-transform duration-500 ease-in-out hover:scale-110"
+          className="w-full h-80vh object-cover opacity-50  transition-transform duration-500 ease-in-out hover:scale-110"
         >
           <source src="http://themenectar.com/demo/salient-corporate-3/wp-content/uploads/2019/09/travelpockets_iceland_land_of_fire_and_ice.mp4" type="video/mp4" />
           Your browser does not support the video tag.
@@ -37,8 +37,8 @@ export default function VideoSection() {
         </div>
 
         {/* Heading text */}
-        <h1 className="text-3xl md:text-4xl font-sm text-center mt-5">
-         <p>This isn&rsquo;t just another video</p>
+        <h1 className="text-3xl md:text-4xl font-bold text-center mt-5 -translate-y-6 z-10 ">
+         <p>{texts.filter((txt)=>txt.type==='link_text')[3]?.value}</p>
 
         </h1>
       </div>

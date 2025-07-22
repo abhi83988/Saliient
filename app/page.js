@@ -13,6 +13,7 @@ import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import he from "he";
+import Loader from "../components/Loader";
 export default function Home() {
 
   const [content, setContent] = useState("");
@@ -31,7 +32,7 @@ export default function Home() {
 
     // Extract values from these attributes including team_member_bio
     const attributes = ['text_content', 'link_text', 'title', 'heading', 'label', 'alt', 'team_member_bio', 'quote', 'hover_content',
-      'name', 'subtitle', 'bg_image', 'image_url', 'images', 'video_mp4', 'background_image', 'team_member_mini_bio', 'job_position', 'bio_alt_image_url'];
+      'name', 'subtitle', 'bg_image', 'image_url', 'image','images', 'video_mp4', 'background_image', 'team_member_mini_bio', 'job_position', 'bio_alt_image_url'];
     attributes.forEach(attr => {
       const regex = new RegExp(`${attr}="([^"]+)"`, 'g');
       for (const match of normalized.matchAll(regex)) {
@@ -68,7 +69,7 @@ export default function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost/wordpress/wp-json/custom/v1/wpbakery-page/5909")
+      .get("https://staging.ekarigar.com/wordpress/wp-json/custom/v1/wpbakery-page/5909")
       .then((res) => {
         if (res.data) {
           console.log("data from api", res.data)
@@ -91,16 +92,17 @@ export default function Home() {
 
   return (
     <main className="relative ">
-      <Hero texts={extractedTexts}/>
+      < Loader/>
+      <Hero texts={extractedTexts} />
       <Header />
-      <SecondSection />
-      <ThirdSection />
-      <FourthSection />
-      <VideoSection />
-      <TeamSection />
-      <ScrollSection />
-      <BrandSection />
-      <Footer />
+      <SecondSection  texts={extractedTexts} />
+      <ThirdSection texts={extractedTexts} />
+      <FourthSection texts={extractedTexts} />
+      <VideoSection texts={extractedTexts} />
+      <TeamSection  texts={extractedTexts} />
+      <ScrollSection texts={extractedTexts} />
+      <BrandSection texts={extractedTexts} />
+      <Footer texts={extractedTexts} />
     </main>
   );
 }

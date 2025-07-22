@@ -5,7 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Footer() {
+export default function Footer({ texts }) {
   const headingRef = useRef(null);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function Footer() {
         ease: 'power3.out',
         scrollTrigger: {
           trigger: headingRef.current,
-          start: 'top 80%',
+          start: 'top 60%',
         },
       }
     );
@@ -35,12 +35,11 @@ export default function Footer() {
             ref={headingRef}
             className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center md:text-left"
           >
-            Enough Talk, Let&apos;s Build<br />
-            Something Together
+            <p>{texts.filter((txt) => txt.type === 'text_content')[7]?.value}</p>
           </h2>
 
           <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 rounded-full transition duration-300  ">
-            Reach out now
+            {texts.filter((txt) => txt.type === 'link_text')[4]?.value}
           </button>
         </div>
 
@@ -48,7 +47,7 @@ export default function Footer() {
         <div className="border-t border-gray-700" />
 
         {/* Footer Columns */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm text-gray-400 text-xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8  text-gray-400 text-xl">
           {/* Column 1: Copyright */}
           <div>
             <p className="mb-2">&copy; 2019 Salient WordPress Theme.</p>
@@ -56,7 +55,7 @@ export default function Footer() {
             <p>All rights reserved.</p>
           </div>
 
-          
+
           {/* Column 2: Archives */}
           <div>
             <h4 className="text-orange-500 font-semibold mb-2 text-2xl">Archives</h4>
@@ -76,30 +75,28 @@ export default function Footer() {
             <h4 className="text-orange-500 font-semibold mb-2 text-2xl">Categories</h4>
             <ul className="space-y-1 text-xl text-white">
               {["Food for thought", "Gaming", "Music", "Uncategorized"].map((item, i) => (
-                <li
-                  key={i}
-                  className="transition-all duration-300 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-white after:transition-all after:duration-300"
-                >
-                  {item}
+                <li key={i} className="relative group w-fit cursor-pointer">
+                  <span>{item}</span>
+                  <span className="absolute left-0 -bottom-0.5 h-[2px] bg-white w-0 group-hover:w-full transition-all duration-300" />
                 </li>
               ))}
             </ul>
           </div>
+
 
           {/* Column 4: Recent Posts */}
           <div>
             <h4 className="text-orange-500 font-semibold mb-2 text-2xl">Recent Posts</h4>
             <ul className="space-y-1 text-xl text-white">
               {["Hello world!", "Wake up and smell the roses", "Doing a cross country road trip", "We encountered a food paradise"].map((item, i) => (
-                <li
-                  key={i}
-                  className="transition-all duration-300 relative after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-0 hover:after:w-full after:bg-white after:transition-all after:duration-300"
-                >
-                  {item}
+                <li key={i} className="relative group w-fit cursor-pointer">
+                  <span>{item}</span>
+                  <span className="absolute left-0 -bottom-0.5 h-[2px] bg-white w-0 group-hover:w-full transition-all duration-300" />
                 </li>
               ))}
             </ul>
           </div>
+
         </div>
       </div>
     </footer>

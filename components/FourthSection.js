@@ -1,16 +1,22 @@
 "use client";
-import { useEffect, useRef } from "react";
+
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Image from 'next/image';
+import Image from "next/image";
+import {fetchWpImageById} from "../app/utils/getImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function FourthSection() {
+export default function FourthSection({ texts }) {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const paragraphsRef = useRef(null);
   const imageRef = useRef(null);
+
+  const [heading, setHeading] = useState("");
+  const [listItems, setListItems] = useState([]);
+  const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -58,6 +64,24 @@ export default function FourthSection() {
 
     return () => ctx.revert();
   }, []);
+useEffect(() => {
+  const loadData = async () => {
+    const headingBlock = texts.filter(t => t.type === "text_content")[3]; // 3rd heading
+    if (headingBlock) setHeading(headingBlock.value);
+
+    const lis = texts.filter(t => t.type === "li").map(t => t.value);
+    setListItems(lis);
+
+    const imageObj = texts.filter(t => t.type === "background_image")[1]; // 1st image
+    if (imageObj) {
+      const img = await fetchWpImageById(imageObj.value);
+      setImageUrl(img?.url || "");
+    }
+  };
+
+  if (texts?.length) loadData();
+}, [texts]);
+
 
   return (
     <section
@@ -71,8 +95,8 @@ export default function FourthSection() {
             ref={headingRef}
             className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-10"
           >
-            Our company mission is <br />
-            to exceed expectations
+            {heading.split(" ").slice(0, 4).join(" ")} <br />
+            {heading.split(" ").slice(4).join(" ")}
           </h2>
 
           <div
@@ -80,30 +104,31 @@ export default function FourthSection() {
             className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-base sm:text-[18px] text-black leading-relaxed"
           >
             <ul className="space-y-3">
-              <li>• 275+ premium section templates to mix and match</li>
-              <li>• Page builder with front-end and back-end editing</li>
-              <li>• Massive element library with extensive options</li>
+              {listItems.slice(0, 3).map((item, i) => (
+                <li key={i}>• {item}</li>
+              ))}
             </ul>
             <ul className="space-y-3">
-              <li>• 275+ premium section templates to mix and match</li>
-              <li>• Page builder with front-end and back-end editing</li>
-              <li>• Updated frequently with new features</li>
+              {listItems.slice(3).map((item, i) => (
+                <li key={i}>• {item}</li>
+              ))}
             </ul>
           </div>
 
           <div className="mt-6 text-orange-500 font-bold text-sm hover:underline cursor-pointer">
-            ← Meet The Team
+            {texts.filter((txt)=>txt.type==='link_text')[2]?.value}
           </div>
         </div>
 
-        {/* Right Image Column (unchanged from your original) */}
+        {/* Right Image Column */}
         <div ref={imageRef}>
-          {/* <img
-            src="http://localhost/wordpress/wp-content/uploads/2019/09/sheng-li-KC5x7jyd33U-unsplash-small.jpg"
-            alt="Mission"
-            className="w-150 h-auto object-cover shadow-md"
-          /> */}
-          <Image src= "/assets/fourth.jpg" alt="Section" width={500} height={300} />
+          {imageUrl && (
+            <img
+              src={imageUrl}
+              alt="Section"
+              className="w-full max-w-sm md:max-w-md h-auto object-cover  shadow-md"
+            />
+          )}
         </div>
       </div>
     </section>

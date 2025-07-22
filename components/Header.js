@@ -56,7 +56,7 @@ export default function Header() {
         {/* Logo */}
        <div className="relative w-[100px] h-[36px] md:w-[140px] md:h-[40px]">
 
-          <Image src={logoSrc} alt="Logo" fill className="object-contain" />
+          <img src={logoSrc} alt="Logo"  className="object-contain" />
         </div>
 
         {/* Desktop Nav */}
